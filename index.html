@@ -16,9 +16,22 @@
 	</noscript>
 	<script>
 		async function fetchSpeechToText() {
-			const response = await fetch('/speech-to-text', { method: 'POST' });
-			const data = await response.json();
-			document.getElementById('speech-output').innerText = data.result;
+			const outputElement = document.getElementById('speech-output');
+			outputElement.innerHTML = "Listening... Please speak!";
+			try {
+				const response = await fetch('/speech-to-text', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' }
+				});
+				const data = await response.json();
+				if (data.status === "success") {
+					outputElement.innerHTML = `<strong>Recognized Text:</strong> ${data.text}`;
+				} else {
+					outputElement.innerHTML = `<span class="error">${data.text}</span>`;
+				}
+			} catch (error) {
+				outputElement.innerHTML = `<span class="error">Error: Unable to process request.</span>`;
+			}
 		}
 	</script>
 </head>
