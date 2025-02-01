@@ -7,33 +7,14 @@
 <html>
 
 <head>
-	<title>Dimension by HTML5 UP</title>
+	<title>SignLanguage</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" type="image/x-icon" href="/images/speech-to-sign-logo.png">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<script>
-		async function fetchSpeechToText() {
-			const outputElement = document.getElementById('speech-output');
-			outputElement.innerHTML = "Listening... Please speak!";
-			try {
-				const response = await fetch('/speech-to-text', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' }
-				});
-				const data = await response.json();
-				if (data.status === "success") {
-					outputElement.innerHTML = `<strong>Recognized Text:</strong> ${data.text}`;
-				} else {
-					outputElement.innerHTML = `<span class="error">${data.text}</span>`;
-				}
-			} catch (error) {
-				outputElement.innerHTML = `<span class="error">Error: Unable to process request.</span>`;
-			}
-		}
-	</script>
 </head>
 
 <body class="is-preload">
@@ -48,10 +29,11 @@
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1>Dimension</h1>
-					<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and
-						released<br />
-						for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+					<h1>SignLanguage</h1>
+					<p>Enable speech-to-sign language and sign-to-speech conversion using an interactive
+						avatar, breaking communication barriers for all.
+						Empower seamless, inclusive communication between the hearing and deaf communities with ease.
+					</p>
 				</div>
 			</div>
 			<nav>
@@ -70,38 +52,70 @@
 
 			<!-- Intro -->
 			<article id="intro">
-				<h2 class="major">Intro</h2>
-				<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-				<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum
-					congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-					magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a
-						href="#work">awesome work</a>.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent
-					taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-					libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut
-					ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor.
-					Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique
-					senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus.
-					Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+				<h2 class="major">Introduction</h2>
+				<span class="image main"><img src="images/pic01.jpg" alt="Speech to Sign Language Avatar" /></span>
+				<p>Welcome to our platform, designed to bridge communication gaps between the hearing and deaf
+					communities. Using advanced technology, we facilitate interaction through speech-to-sign
+					language conversion powered by a lifelike avatar.</p>
+				<p>We are committed to continuously improving and expanding our services. Our goal is to introduce full
+					sign language recognition and vice versa, making communication more accessible and empowering for
+					everyone. Stay tuned for future updates as we work to enhance our platform and foster a truly
+					inclusive experience.</p>
+				<p>Explore our work at the <a href="#work">Work</a> section and see how we’re changing the way we
+					communicate.</p>
+				<p><strong>Note:</strong> Currently, only speech-to-text conversion is supported. Full sign language
+					recognition and translation are coming soon!</p>
 			</article>
+
 
 			<!-- Work -->
 			<article id="work">
-				<h2 class="major">Work</h2>
-				<button onclick="fetchSpeechToText()">Convert Speech to Text</button>
-				<p id="speech-output">Your speech-to-text result will appear here.</p>
+				<h2 class="major">Speech to Text</h2>
+				<button id="start-button" onclick="startRecording()">Start Recording</button>
+				<button id="stop-button" onclick="stopRecording()" disabled>Stop Recording</button>
+				<div id="speech-output">Your recognized speech will appear here...</div>
+
+				<script src="assets/js/signlanguage.js"></script>
 			</article>
 
 			<!-- About -->
 			<article id="about">
-				<h2 class="major">About</h2>
-				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-				<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at
-					eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-					lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada
-					fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum
-					dolor sit amet.</p>
+				<h2 class="major">About Us</h2>
+				<span class="image main"><img src="images/pic02.jpg" alt="Our Team" /></span>
+				<p>We are a group of passionate and dedicated final-year students, committed to creating technology that
+					has a meaningful social impact. As part of our final-year project, we wanted to develop something
+					that could truly make a difference in the world, which led us to the idea of bridging communication
+					barriers between the hearing and deaf communities.</p>
+				<p>Our project aims to provide speech-to-sign language and speech-to-text conversion,
+					facilitated through an interactive avatar. This technology will allow for seamless communication
+					between individuals who use spoken language and those who use sign language. By translating speech
+					into sign language and vice versa, our platform opens up new opportunities for inclusive
+					communication in everyday life.</p>
+				<p>We chose this project because of its immense potential for social good. We recognized the importance
+					of inclusivity and accessibility in communication and wanted to create a solution that would empower
+					people to interact freely without the limitations of language barriers. Our goal is to make the
+					world more connected by providing an easy-to-use platform that ensures everyone can participate in
+					conversations and engage meaningfully with others.</p>
+				<p>Each of us on the team brings a unique set of skills, creativity, and problem-solving abilities that
+					have been crucial in the development of this project. Through teamwork and collaboration, we have
+					been able to bring this idea to life, and we’re excited to continue refining and expanding its
+					features. As final-year students, this project has been a culmination of all the learning and
+					experiences we’ve gathered throughout our academic journey, and we couldn’t be more proud of the
+					work we’ve accomplished so far.</p>
+				<p>Our team members are:</p>
+				<ul>
+					<li><strong>Subhasri K</strong></li>
+					<li><strong>Rithiksha R</strong></li>
+					<li><strong>Sakthi Sree S</strong></li>
+					<li><strong>Swathika K B</strong></li>
+				</ul>
+				<p>We’re excited to share this project with the world, and we are continuously working on improving and
+					expanding its capabilities. We believe this is just the beginning, and we’re
+					committed to creating a platform that continues to innovate and provide value to all users, breaking
+					communication barriers for good.</p>
+				<p>Stay connected as we work towards a more inclusive and accessible future!</p>
 			</article>
+
 
 			<!-- Contact -->
 			<article id="contact">
@@ -388,7 +402,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 		</footer>
 
 	</div>
