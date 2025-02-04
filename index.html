@@ -71,10 +71,13 @@
 			<!-- Work -->
 			<article id="work">
 				<h2 class="major">Speech to Text</h2>
-				<button id="start-button" onclick="startRecording()">Start Recording</button>
-				<button id="stop-button" onclick="stopRecording()" disabled>Stop Recording</button>
+				<button id="start-button" onclick="startRecording()">Start</button>
+				<button id="stop-button" onclick="stopRecording()" disabled>Stop</button>
 				<div id="speech-output">Your recognized speech will appear here...</div>
-
+				<section id="sign-language">
+					<h2 class="major" style="margin-top: 20px;">Sign Language</h2>
+					<div id="sign-display"></div>
+				</section>
 				<script src="assets/js/signlanguage.js"></script>
 			</article>
 

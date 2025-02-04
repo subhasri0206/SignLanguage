@@ -1776,3 +1776,74 @@ body.is-article-visible #footer {
 body.is-preload #footer {
 	opacity: 0;
 }
+
+.sentence-container {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.highlight {
+	color: red;
+	font-size: 28px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.video-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	width: 200px;
+}
+
+.sign-video {
+	width: 640px;
+	height: 360px;
+	border-radius: 10px;
+	border: 2px solid #ffffff;
+	background-color: black;
+}
+
+.sign-caption {
+	text-align: left;
+	width: 100%;
+	font-size: 34px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+	.video-wrapper {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.sign-video {
+		width: 90%;
+		/* Make the video responsive */
+		height: auto;
+		/* Maintain aspect ratio */
+	}
+
+	.sign-caption {
+		text-align: center;
+		/* Center text */
+		font-size: 24px;
+		/* Adjust font size for small screens */
+	}
+
+	.sentence-container {
+		font-size: 20px;
+		text-align: center;
+		/* Center the sentence */
+	}
+
+	.highlight {
+		font-size: 26px;
+		/* Adjust highlight size */
+	}
+}
